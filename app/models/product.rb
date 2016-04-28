@@ -4,7 +4,12 @@ class Product  < ActiveRecord::Base
 	validates :title, uniqueness: true
 	validates :image_url, allow_blank: true, format: { 
 		with: %r{\.(gif|jpg|png)\z}i,
-		message: 'must be a URL for GIF, JPG or PNG image.'
-	}
+		message: 'must be a URL for GIF, JPG or PNG image.' }
+
+
+		def add_to_price(value)
+			price + value
+		end
+	
 
 end
